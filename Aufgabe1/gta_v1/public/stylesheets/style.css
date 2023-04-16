@@ -48,6 +48,57 @@ a {
 
 /* ... your code here ... */
 
+input
+{
+  width: 175px;
+  height: 32px;
+  margin-left: 15px;
+  margin-top: 7px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-style: hidden;
+  border-radius: 3px;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: rgba(128,128,128,0.5);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1px;
+}
+
+input:focus
+{
+  outline-color: black;
+}
+
+input[type="submit"]
+{
+    color:gray;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0;
+    border-color: grey;
+    border-radius: 10px;
+}
+
+input[type="submit"]:hover
+{
+  background-color: darkgrey;
+}
+
+
+label
+{
+  font-size: 15px;
+  margin-left: 15px;
+  letter-spacing: 1px;
+}
+
+#button_tag
+{
+  color: black;
+}
+
+
 
 /* Grid styles (no changes required) */
 
@@ -110,6 +161,24 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
+.header
+{
+  background-color: rgb(214, 214, 214);
+  height: 150px;
+}
+
+img
+{
+  width: 3%;
+  padding-left: 30px;
+}
+
+h1
+{
+  text-align: center;
+}
+
+
 
 
 /* ### TODO ### Styles for Main Component */
@@ -120,6 +189,30 @@ a {
 /* ### TODO ### Styles for Tagging component */
 
 /* ... your code here ... */
+
+#tag-field
+{
+  width: 13%;
+  border-style: solid;
+  border-color: rgba(128,128,128,0.3);
+
+}
+
+.tagging
+{
+  margin-left: 40px;
+}
+
+legend
+{
+  margin-left: 15px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
 
 
 /* ### TODO ### Styles for Discovery component */
