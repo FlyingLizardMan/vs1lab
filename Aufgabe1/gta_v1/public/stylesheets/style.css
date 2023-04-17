@@ -119,10 +119,19 @@ a {
 
 /* ### TODO ### Styles for Tagging component */
 
+.main__tagging {
+  margin-left: 30px;
+}
+
 /* ... your code here ... */
 
 
 /* ### TODO ### Styles for Discovery component */
+
+.main__discovery {
+  margin-left: 20px;
+  margin-right: 30px;
+}
 
 /* ... your code here ... */
 
