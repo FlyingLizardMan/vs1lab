@@ -109,7 +109,33 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header {
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__image {
+  width: 45px;
+  height: 45px;
+  margin-left: 40px;
+}
+
+.header__title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
 
 
 /* ### TODO ### Styles for Main Component */
@@ -123,7 +149,7 @@ a {
   margin-left: 30px;
 }
 
-/* ... your code here ... */
+
 
 
 /* ### TODO ### Styles for Discovery component */
@@ -133,7 +159,7 @@ a {
   margin-right: 30px;
 }
 
-/* ... your code here ... */
+
 
 
 /* ### TODO ### Styles for Footer Component */

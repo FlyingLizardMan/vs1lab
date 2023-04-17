@@ -14,9 +14,9 @@
 
 <body>
     <header class="header row">
-        <img src="./images/location.png" class="header__image col-3" alt="an image of a map and location">
-        <h1 class="header__title col-6">GeoTagApp</h1>
-        <nav class="header__navigation col-3">
+        <img src="./images/location.png" class="header__image col-4" alt="an image of a map and location">
+        <h1 class="header__title col-4">GeoTagApp</h1>
+        <nav class="header__navigation col-4">
             <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
         </nav>
     </header>
@@ -35,13 +35,13 @@
                         <input type="text", id="text_field_latitude", size="20", placeholder="52.5200066" readonly><br>
 
                         <label for="text_field_latitude">Longitude:</label><br>
-                        <input type="text", id="text_field_longitude", size="20", placeholder="13.404954" readonly><br>
+                        <input type="text", id="text_field_longitude" size="20", placeholder="13.404954" readonly><br>
 
                         <label for="text_field_name">Name:</label><br>    
                         <input type="text", id="text_field_name", size ="20", maxlength="10", placeholder="e.g. Berlin Central" required><br>
     
                         <label for="text_field_tags">Hashtag:</label><br>
-                        <input type="tags", id="text_field_tags", size="20", placeholder="e.g. #ber"><br>
+                        <input type="text", id="text_field_tags", placeholder="e.g. #ber", pattern="[#], [a-Z], [0-9]" maxlength="11"><br>
 
                         <input type="submit", id="button_tag", value="Add Tag">
                     </fieldset>   
