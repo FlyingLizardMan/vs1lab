@@ -42,8 +42,6 @@ body {
 
 a {
   color: var(--link-color);
-  margin-right: 3px;
-  margin-left: 3px;
 }
 
 /* ### TODO ### Styles for other HTML elements */
@@ -56,6 +54,8 @@ legend {
 a {
   color: red;
   text-decoration: none;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 
 a:hover {
@@ -166,6 +166,7 @@ a:hover {
 
 .main__tagging {
   margin-left: 30px;
+  margin-top: 25px;
 }
 
 #tag-form {
@@ -175,6 +176,7 @@ a:hover {
 
 .tag_span {
   margin-left: 15px;
+  color:#656565;
 }
 
 #text_field_latitude, #text_field_longitude, #text_field_name, #text_field_tags {
@@ -183,6 +185,10 @@ a:hover {
   margin-left: 15px;
   width: 190px;
   height: 32px;
+}
+
+#text_field_name:hover, #text_field_tags:hover {
+  border-color: grey;
 }
 
 #button_tag {
@@ -201,6 +207,36 @@ a:hover {
 .main__discovery {
   margin-left: 20px;
   margin-right: 30px;
+  margin-top: 25px;
+}
+
+#discovery-field {
+  margin-top: 10px;
+  height: 170px;
+}
+
+.disc_span {
+  margin-left: 15px;
+  color:#656565;
+}
+
+#text_field_search {
+  margin-bottom: 13px;
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 190px;
+  height: 32px;
+}
+
+#text_field_search:hover {
+  border-color: grey;
+}
+
+#button_search {
+  padding: 8px;
+  margin-left: 15px;
+  margin-top: 8px;
+  width: 190px;
 }
 
 
