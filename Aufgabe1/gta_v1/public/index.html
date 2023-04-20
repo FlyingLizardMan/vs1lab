@@ -22,9 +22,9 @@
     </header>
     
 
-    <main class="main">
-        <div class="main_row1 row">
-            <section class="main__tagging tagging col-3">
+    <main class="main row">
+        <div class="main_col1 col-3">
+            <section class="main__tagging tagging col-12">
                 <h2>Tagging</h2>
                 <!-- ############### VS1Lab 1a Form 1 Start -->
                     <form id="tag-form" action="/tagging" method="post">
@@ -48,8 +48,9 @@
                 <!-- ############### VS1Lab 1a Form 1 End -->
                 
             </section>
-
-            <section class="main__discovery discovery col-9">
+        </div>
+        <div class="main_col2 col-9">
+            <section class="main__discovery discovery">
                 <h2 class="discovery__title">Discovery</h2>
 
                 <!-- ############### VS1Lab 1a Form 2 Start -->
@@ -67,10 +68,11 @@
                         <input type="submit", id="button_search", value="Search">
                     </fieldset>
                 </form>
+            </section>
                 <!-- ############### VS1Lab 1a Form 2 End -->
-            </div>
-            <div class="main_row2 row">
-                <div class="discovery__wrapper col-2">
+        
+            <!--<div class="main_row2">-->
+                <div class="discovery__wrapper col-5">
                     <div class="discovery__taglist">
                         <ul class="discovery__results" id="discoveryResults">
                             <li>Castle (49.01379, 8.404435) #sight</li>
@@ -78,16 +80,16 @@
                         </ul>
                     </div>
                 </div>
-            </section>
-            <div class="discovery__pics col-10">
+
+            <div class="discovery__pics col-7">
                 <img class="discovery-map" src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
-                <span>Result map</span>
+                <span class="res_span"><b>Result map</b></span>
             </div>
         </div>
     </main>
 
     <footer class="footer row">
-        <span>(c) 2021/22 HKA_IWI_VSYS</span>
+        <span class="copy_span">(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
 </body>
 
