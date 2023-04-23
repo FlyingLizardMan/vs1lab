@@ -131,7 +131,6 @@ a:hover {
   align-items: center;
   flex-basis: auto;
   height: 100px;
-  gap: 300px;
 }
 
 .header__image {
@@ -153,15 +152,11 @@ a:hover {
   margin-right: 30px;
 }
 
-
-
-
-/* ### TODO ### Styles for Main Component */
-
-
-
-
 /* ### TODO ### Styles for Tagging component */
+
+.main {
+  height: 75%;
+}
 
 .main__tagging {
   margin-left: 30px;
@@ -196,6 +191,10 @@ a:hover {
   margin-top: 8px;
   margin-bottom: 15px;
   width: 190px;
+}
+
+#button_tag:hover {
+  background-color: #21ba54;
 }
 
 
@@ -243,6 +242,10 @@ a:hover {
   width: 190px;
 }
 
+#button_search:hover {
+  background-color: #21ba54;
+}
+
 .discovery__wrapper {
   align-self: flex-start;
   margin-top: 30px;
@@ -260,6 +263,10 @@ li {
   margin-bottom: 15px;
   width: 70%;
   color: black;
+}
+
+li:hover {
+  border: thin solid red;
 }
 
 .discovery__pics {
@@ -297,4 +304,58 @@ li {
 
 /* ### TODO ### Media Queries */
 
-/* ... your code here ... */
+@media only screen and (max-width: 941px) {
+
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  .header__image {
+    width: 45px;
+  }
+
+  .header__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    left: 5%;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .discovery__wrapper {
+    margin-left: 30px;
+  }
+
+  li {
+    width: 50%;
+  }
+
+  .discovery__pics {
+    position: relative;
+    top: 1px;
+  }
+
+  #tag-field {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+
+  .main__discovery {
+    margin-left: 30px;
+  }
+
+  #discovery-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
