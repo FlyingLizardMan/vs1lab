@@ -24,7 +24,7 @@ html {
 /* Variables (example: see declaration for "a" below) */
 
 :root {
-  --link-color: #00B7FF;
+  --link-color: #de45ab;
   --background-color: #efefef;
   --border-color: #cdcdcd;
   --gray-color: #666;
@@ -109,27 +109,73 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-/* ... your code here ... */
+.header 
+{
+  background-color: #21ba54;
+  display: flex;
+  align-items: center;
+}
 
+.header__image
+{
+    width: 5%;
+    height: 5%;
+    justify-content: start;
+}
+.header__title
+{
+  justify-content: center;
+  flex-grow: 2;
+}
+.header__navigation
+{
+  justify-content: end;
+  flex-grow: 0;
+}
 
 /* ### TODO ### Styles for Main Component */
 
-/* ... your code here ... */
+
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
+
+.main__tagging
+{
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: ;
+
+}
+.tagging-form
+{
+  justify-content: space-between;
+}
+
+
+
+.main__discovery
+{
+  margin-right: 5%;
+}
+
+.button_tag:hover {
+  color: #21ba54;
+  background-color: #21ba54;
+}
 
 
 /* ### TODO ### Styles for Discovery component */
-
-/* ... your code here ... */
 
 
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+
 
 
 /* ### TODO ### Media Queries */

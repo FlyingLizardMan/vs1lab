@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header row">
         <img src="./images/location.png" class="header__image" alt="an image of a map and location">
         <h1 class="header__title">GeoTagApp</h1>
         <nav class="header__navigation">
@@ -21,32 +21,43 @@
         </nav>
     </header>
 
-    <main class="main">
-        <section class="main__tagging tagging">
+    <main class="main row">
+        <section class="main__tagging tagging col-4">
             <h2>Tagging</h2>
-
-            <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
+                <legend>Add a new GeoTag</legend>
+                <label for="text_field_longitude">Latitude:</label><br>
+                <input type="text", id="text_field_latitude", size="20", placeholder="52.5200066" disabled><br>
 
-                <!-- ... your code here ... -->
+                <label for="text_field_latitude">Longitude:</label><br>
+                <input type="text", id="text_field_longitude", size="20", placeholder="13.404954" disabled><br>
 
+                <label for="text_field_name">Name:</label><br>    
+                <input type="text", id="text_field_name", size ="20", maxlength="10", placeholder="e.g. Berlin Central" required><br>
+
+                <label for="text_field_tags">Hashtag:</label><br>
+                <input type="tags", id="text_field_tags", size="20", pattern="#.+" maxlength="11" placeholder="e.g. #ber"><br>
+
+                <button type="submit", id="button_tag">Add Tag</button>
             </form>
-            <!-- ############### VS1Lab 1a Form 1 End -->
-
         </section>
 
-        <section class="main__discovery discovery">
+        <section class="main__discovery discovery col-8">
             <h2 class="discovery__title">Discovery</h2>
-
-            <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                <fieldset id="discovery-field">
+                    <legend>Search</legend>
+                    <label for="text_field_sea
+                    rch">Search term or keywords:</label><br>
+                    <input type="text", id="text_field_search", size="20", placeholder="e.g. Berlin"><br>
+                    <input type="hidden" id="latitude_input" size="20">
+                    <input type="hidden" id="longitude_input" size="20">
 
-                <!-- ... your code here ... -->
 
+                    <button type="submit", id="button_search">Search</button>
+                </fieldset>
             </form>
-            <!-- ############### VS1Lab 1a Form 2 End -->
-
-            <div class="discovery__wrapper">
+            <div class="discovery__wrapper row">
                 <div class="discovery__taglist">
                     <ul class="discovery__results" id="discoveryResults">
                         <li>Castle (49.01379, 8.404435) #sight</li>
@@ -54,7 +65,7 @@
                     </ul>
                 </div>
 
-                <div class="discovery__map">
+                <div class="discovery__map row">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span>Result map</span>
                 </div>
@@ -63,7 +74,7 @@
 
     </main>
 
-    <footer class="footer">
+    <footer class="footer row">
         <span>(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
 </body>
