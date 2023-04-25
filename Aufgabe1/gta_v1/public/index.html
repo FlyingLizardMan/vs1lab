@@ -22,7 +22,7 @@
     </header>
 
     <main class="main row">
-        <section class="main__tagging tagging col-4">
+        <section class="main__tagging tagging col-3">
             <h2>Tagging</h2>
             <form id="tag-form" action="/tagging" method="post">
                 <legend>Add a new GeoTag</legend>
@@ -42,7 +42,7 @@
             </form>
         </section>
 
-        <section class="main__discovery discovery col-8">
+        <section class="main__discovery discovery col-9">
             
             <h2 class="discovery__title">Discovery</h2>
             <div class="discovery__content">
@@ -57,16 +57,16 @@
                             <button type="submit", id="button_search">Search</button>
                         </fieldset>
                     </form>
-                        <div class="discovery__taglist">
-                            <ul class="discovery__results" id="discoveryResults">
-                                <li>Castle (49.01379, 8.404435) #sight</li>
-                                <li>IWI (49.01379, 8.390071) #edu</li>
-                            </ul>
-                        </div>
+                    <div class="discovery__taglist">
+                        <ul class="discovery__results" id="discoveryResults">
+                            <li>Castle (49.01379, 8.404435) #sight</li>
+                            <li>IWI (49.01379, 8.390071) #edu</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="discovery__map">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span>Result map</span>
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                 </div>
                 </div>
         </section>
