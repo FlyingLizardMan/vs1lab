@@ -27,7 +27,7 @@ html {
   --link-color: #de45ab;
   --background-color: #efefef;
   --border-color: #cdcdcd;
-  --gray-color: #666;
+  --gray-color: #664;
 }
 
 
@@ -146,26 +146,37 @@ a {
   margin-left: 5%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  border: ;
-
+  align-items: flex-start;
 }
+
 .tagging-form
 {
   justify-content: space-between;
 }
 
-
-
 .main__discovery
 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
   margin-right: 5%;
 }
-
 .button_tag:hover {
   color: #21ba54;
   background-color: #21ba54;
+}
+
+.discovery__content
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.discovery__wrapper
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 

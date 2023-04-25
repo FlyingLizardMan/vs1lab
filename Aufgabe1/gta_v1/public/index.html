@@ -27,10 +27,10 @@
             <form id="tag-form" action="/tagging" method="post">
                 <legend>Add a new GeoTag</legend>
                 <label for="text_field_longitude">Latitude:</label><br>
-                <input type="text", id="text_field_latitude", size="20", placeholder="52.5200066" disabled><br>
+                <input type="text", id="text_field_latitude", size="20", placeholder="52.5200066" readonly><br>
 
                 <label for="text_field_latitude">Longitude:</label><br>
-                <input type="text", id="text_field_longitude", size="20", placeholder="13.404954" disabled><br>
+                <input type="text", id="text_field_longitude", size="20", placeholder="13.404954" readonly><br>
 
                 <label for="text_field_name">Name:</label><br>    
                 <input type="text", id="text_field_name", size ="20", maxlength="10", placeholder="e.g. Berlin Central" required><br>
@@ -43,33 +43,32 @@
         </section>
 
         <section class="main__discovery discovery col-8">
+            
             <h2 class="discovery__title">Discovery</h2>
-            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
-                <fieldset id="discovery-field">
-                    <legend>Search</legend>
-                    <label for="text_field_sea
-                    rch">Search term or keywords:</label><br>
-                    <input type="text", id="text_field_search", size="20", placeholder="e.g. Berlin"><br>
-                    <input type="hidden" id="latitude_input" size="20">
-                    <input type="hidden" id="longitude_input" size="20">
-
-
-                    <button type="submit", id="button_search">Search</button>
-                </fieldset>
-            </form>
-            <div class="discovery__wrapper row">
-                <div class="discovery__taglist">
-                    <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
-                    </ul>
+            <div class="discovery__content">
+                <div class="discovery__wrapper">
+                    <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+                        <fieldset id="discovery-field">
+                            <legend>Search</legend>
+                            <label for="text_field_search">Search term or keywords:</label><br>
+                            <input type="text", id="text_field_search", size="20", placeholder="e.g. Berlin"><br>
+                            <input type="hidden" id="latitude_input" size="20">
+                            <input type="hidden" id="longitude_input" size="20">
+                            <button type="submit", id="button_search">Search</button>
+                        </fieldset>
+                    </form>
+                        <div class="discovery__taglist">
+                            <ul class="discovery__results" id="discoveryResults">
+                                <li>Castle (49.01379, 8.404435) #sight</li>
+                                <li>IWI (49.01379, 8.390071) #edu</li>
+                            </ul>
+                        </div>
                 </div>
-
-                <div class="discovery__map row">
+                <div class="discovery__map">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span>Result map</span>
                 </div>
-            </div>
+                </div>
         </section>
 
     </main>
