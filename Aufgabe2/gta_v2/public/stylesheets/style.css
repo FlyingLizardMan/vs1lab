@@ -1,0 +1,362 @@
+/*
+  File origin: VS1LAB A1b  
+
+  CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).
+  CSS variables used for clarity and themability (e.g. through SSR). 
+  Inherited box sizing used for ease of including 3rd party content-box components.
+*/
+
+/* Global styling */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* This approach prevents issues with 3rd party content-box components */
+  box-sizing: inherit;
+}
+
+
+/* Variables (example: see declaration for "a" below) */
+
+:root {
+  --link-color: #00B7FF;
+  --background-color: #efefef;
+  --border-color: #cdcdcd;
+  --gray-color: #666;
+}
+
+
+/* HTML element styles */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* ### TODO ### Styles for other HTML elements */
+
+legend {
+  margin-left: 13px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #de45ab;
+  text-decoration: none;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* Grid styles (no changes required) */
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.col-1 {
+  width: calc(8.33% - 1rem);
+}
+
+.col-2 {
+  width: calc(16.66% - 1rem);
+}
+
+.col-3 {
+  width: calc(25% - 1rem);
+}
+
+.col-4 {
+  width: calc(33.33% - 1rem);
+}
+
+.col-5 {
+  width: calc(41.66% - 1rem);
+}
+
+.col-6 {
+  width: calc(50% - 1rem);
+}
+
+.col-7 {
+  width: calc(58.33% - 1rem);
+}
+
+.col-8 {
+  width: calc(66.66% - 1rem);
+}
+
+.col-9 {
+  width: calc(75% - 1rem);
+}
+
+.col-10 {
+  width: calc(83.33% - 1rem);
+}
+
+.col-11 {
+  width: calc(91.66% - 1rem);
+}
+
+.col-12 {
+  width: calc(100% - 1rem);
+}
+
+
+/* ### TODO ### Styles for Header Component */
+
+.header {
+  background-color: #21ba54;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: auto;
+  height: 100px;
+}
+
+.header__image {
+  width: 45px;
+  height: 40px;
+  margin-left: 30px;
+}
+
+.header__title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+}
+
+/* ### TODO ### Styles for Tagging component */
+
+.main {
+  height: 75%;
+}
+
+.main__tagging {
+  margin-left: 30px;
+  margin-top: 25px;
+}
+
+#tag-form {
+  margin-top: 10px;
+  width: 90%;
+}
+
+.tag_span {
+  margin-left: 15px;
+  color:#656565;
+}
+
+#text_field_latitude, #text_field_longitude, #text_field_name, #text_field_tags {
+  margin-bottom: 13px;
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 190px;
+  height: 32px;
+}
+
+#text_field_name:hover, #text_field_tags:hover {
+  border-color: grey;
+}
+
+#button_tag {
+  padding: 8px;
+  margin-left: 15px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  width: 190px;
+}
+
+#button_tag:hover {
+  background-color: #21ba54;
+}
+
+
+
+
+/* ### TODO ### Styles for Discovery component */
+
+.main_col2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__discovery {
+  margin-left: 20px;
+  margin-right: 30px;
+  margin-top: 25px;
+}
+
+#discovery-field {
+  margin-top: 10px;
+  height: 170px;
+}
+
+.disc_span {
+  margin-left: 15px;
+  color:#656565;
+}
+
+#text_field_search {
+  margin-bottom: 13px;
+  
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 190px;
+  height: 32px;
+}
+
+#text_field_search:hover {
+  border-color: grey;
+}
+
+#button_search {
+  padding: 8px;
+  margin-left: 15px;
+  margin-top: 8px;
+  width: 190px;
+}
+
+#button_search:hover {
+  background-color: #21ba54;
+}
+
+.discovery__wrapper {
+  align-self: flex-start;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 25px;
+  border: thin solid rgb(113, 113, 113);
+  background-color: #edfed5;
+  margin-bottom: 15px;
+  width: 70%;
+  color: black;
+}
+
+li:hover {
+  border: thin solid red;
+}
+
+.discovery__pics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  bottom: 197px;
+  left: 30px;
+  width: 500px;
+  align-self: flex-end;
+}
+
+.res_span {
+  color: #656565
+}
+
+
+
+
+/* ### TODO ### Styles for Footer Component */
+
+.footer {
+  display: flex;
+  flex-basis: auto;
+  height: 75px;
+  align-items: center;
+  background-color: #21ba54;
+}
+
+.copy_span {
+  margin-left: 30px;
+}
+
+
+/* ### TODO ### Media Queries */
+
+@media only screen and (max-width: 941px) {
+
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  .header__image {
+    width: 45px;
+  }
+
+  .header__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    left: 5%;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .discovery__wrapper {
+    margin-left: 30px;
+  }
+
+  li {
+    width: 50%;
+  }
+
+  .discovery__pics {
+    position: relative;
+    top: 1px;
+  }
+
+  #tag-field {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+
+  .main__discovery {
+    margin-left: 30px;
+  }
+
+  #discovery-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
