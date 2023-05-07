@@ -258,6 +258,8 @@ legend
   flex-direction: column;
   margin-right: 50px;
   margin-top: 10px;
+  height: 50%;
+  width: 40%;
 }
 
 li
