@@ -57,7 +57,7 @@ Rufen sie die neue `updateLocation`-Funktion nach dem Laden des Dokuments automa
 ### 2. Teilaufgabe: Position auf Karte darstellen
 
 Wir wollen nun die gefundene Position auf einer Karte darstellen. Konkret werden wir zu diesem Zweck *MapQuest* verwenden, ein - für unsere Zwecke - kostenfreier Dienst um statische Karten anzuzeigen. Zunächst benötigen sie einen **API-Schlüssel** für die [MapQuestApi](https://developer.mapquest.com/user/login/sign-up) (kostenlos). Registrieren sie sich dort, erstellen sie eine App ('Callback URL' kann leer bleiben) und notieren sie sich den Key ('Consumer Key').
-
+//GAKJvcSoWsZoTHXWNicJsdl1Uj5w6pRK KEY
 Die Klasse `MapManager` enthält einige Hilfsfunktionen zur Verwendung von MapQuest. Um eine Instanz zu erzeugen, wird der Konstruktor mit dem MapQuest API-Key aufgerufen. Dann kann die Methode `getMapUrl` verwendet werden, um die URL einer gewünschten Karte abzufragen. Die Karte selbst erhält man schließlich durch einen HTTP Request.
 
 Ergänzen sie ihre `updateLocation`-Funktion im wie folgt:

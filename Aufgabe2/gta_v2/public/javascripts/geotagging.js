@@ -103,8 +103,31 @@ class MapManager {
  * It is called once the page has been fully loaded.
  */
 // ... your code here ...
+var longitude = document.getElementById("text_field_longitude");
+var latitude = document.getElementById("text_field_latitude");
+var latitude_hidden = document.getElementById("latitude_input_hidden");
+var longitude_hidden = document.getElementById("longitude_input_hidden");
+
+function updateLocation()
+{
+    LocationHelper.findLocation(setValues);  
+    var mapManager = new MapManager("GAKJvcSoWsZoTHXWNicJsdl1Uj5w6pRK");
+    var mapURL = mapManager.getMapUrl(latitude.value,longitude.value, [], 15);
+    var image = document.getElementById("mapView");
+    image.src = mapURL;
+}
+    
+function setValues(helper)
+{
+    longitude.value = helper.longitude;
+    latitude.value = helper.latitude;
+    latitude_hidden.value = helper.latitude;
+    longitude_hidden.value = helper.longitude;
+}
+
+
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
 });
