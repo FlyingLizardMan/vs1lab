@@ -278,7 +278,13 @@ li:hover {
   bottom: 197px;
   left: 30px;
   width: 500px;
+  height: 375px;
   align-self: flex-end;
+}
+
+#mapView {
+  height: 150%;
+  width: 88%;
 }
 
 .res_span {
