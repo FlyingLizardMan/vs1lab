@@ -164,7 +164,7 @@ label
 /* ... your code here ... */
 header
 {
-  padding: 30px;
+  padding: 2%;
 }
 
 .header
@@ -173,13 +173,13 @@ header
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .header__navigation
 {
-  padding-top: 10px;
+  padding-top: 1%;
 }
 
 .header__image
@@ -201,7 +201,7 @@ main
 {
   display: flex;
   flex-direction: row;
-  padding: 60px 0 0 60px;
+  padding: 2% 0 0 2%;
 }
 
 
@@ -222,20 +222,20 @@ fieldset
 {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
-  margin-right: 40px;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 legend
 {
-  margin-left: 15px;
+  margin-left: 1%;
   font-size: 15px;
   font-weight: 600;
 }
 
 .tagging__title
 {
-  margin-bottom: 20px;
+  margin-bottom: 10%;
 }
 
 
