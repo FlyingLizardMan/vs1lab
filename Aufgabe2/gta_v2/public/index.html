@@ -31,10 +31,10 @@
                 <fieldset id="tag-field">
                     <legend>Add a new GeoTag</legend>
                     <label for="text_field_longitude">Latitude:</label><br>
-                    <input type="text", id="text_field_latitude", size="20", placeholder="52.5200066" disabled><br>
+                    <input type="text", id="text_field_latitude", size="20", placeholder="Your Location" disabled><br>
 
                     <label for="text_field_latitude">Longitude:</label><br>
-                    <input type="text", id="text_field_longitude", size="20", placeholder="13.404954" disabled><br>
+                    <input type="text", id="text_field_longitude", size="20", placeholder="Your Location" disabled><br>
 
                     <label for="text_field_name">Name:</label><br>    
                     <input type="text", id="text_field_name", size ="20", maxlength="10", placeholder="e.g. Berlin Central" required><br>
@@ -89,6 +89,10 @@
     <footer class="footer row">
         <span>(c) 2021/22 HKA_IWI_VSYS</span>
     </footer>
+    <!-- Load JavaScripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./javascripts/geotagging.js"></script>
 </body>
 
 </html>
