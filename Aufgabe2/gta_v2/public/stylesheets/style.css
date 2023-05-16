@@ -222,8 +222,7 @@ fieldset
 {
   display: flex;
   flex-direction: column;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 2%;
 }
 
 legend
@@ -334,12 +333,13 @@ footer
   .discovery
   {
     margin-top: 20px;
-    margin-left: 3%;
+    margin-left: 2%;
   }
 
   li
   {
     width: 100%;
+    font-size: 10px;
     word-break: normal;
   }
 }
