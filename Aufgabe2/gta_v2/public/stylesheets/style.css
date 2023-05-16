@@ -201,7 +201,7 @@ main
 {
   display: flex;
   flex-direction: row;
-  padding: 2% 0 0 2%;
+  padding: 2% 0 0 1%;
 }
 
 
@@ -235,7 +235,7 @@ legend
 
 .tagging__title
 {
-  margin-bottom: 10%;
+  margin-bottom: 8px;
 }
 
 
@@ -248,7 +248,7 @@ legend
 
 #discovery-field
 {
-  margin-right: 50px;
+  margin-right: 5%;
   height: 25%;
 }
 
@@ -256,10 +256,16 @@ legend
 {
   display: flex;
   flex-direction: column;
-  margin-right: 50px;
-  margin-top: 10px;
-  height: 50%;
-  width: 40%;
+  margin-right: 5%;
+  margin-left: 1%;
+  margin-top: 1%;
+  height: auto;
+  width: 100%;
+}
+#mapView
+{
+  height: auto;
+  width: 100%;
 }
 
 li
@@ -267,7 +273,7 @@ li
   background-color: rgb(193, 192, 192);
   color: rgb(40, 185, 225);
   border: 1px solid black;
-  margin-top: 15px;
+  margin-top: 2%;
   padding: 12px;
   font-size: larger;
   width: 50%;
@@ -289,7 +295,7 @@ ul
 
 .discovery__title
 {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 .discovery__wrapper
@@ -308,7 +314,7 @@ ul
 footer
 {
   display: flex;
-  padding: 60px;
+  padding: 30px;
   width: 100%;
   background-color: rgb(214, 214, 214);
 }
@@ -327,7 +333,14 @@ footer
 
   .discovery
   {
-    margin-left: 50px;
+    margin-top: 20px;
+    margin-left: 3%;
+  }
+
+  li
+  {
+    width: 100%;
+    word-break: normal;
   }
 }
 
