@@ -223,7 +223,7 @@ fieldset
   display: flex;
   flex-direction: column;
   margin-left: 2%;
-  margin-right: 6%;
+  margin-right: 12px;
 }
 
 legend

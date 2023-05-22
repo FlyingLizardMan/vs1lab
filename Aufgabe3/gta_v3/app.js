@@ -6,9 +6,7 @@
  * Complete all TODOs in the code documentation.
  */
 
-/**
- * Define module dependencies.
- */
+/* Module dependencies*/
 
 const createError = require('http-errors');
 const express = require('express');

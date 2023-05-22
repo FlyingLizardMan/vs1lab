@@ -1,11 +1,6 @@
 // File origin: VS1LAB A3
 
 /**
- * This script is a template for exercise VS1lab/Aufgabe3
- * Complete all TODOs in the code documentation.
- */
-
-/**
  * A class for in-memory-storage of geotags
  * 
  * Use an array to store a multiset of geotags.
@@ -25,7 +20,13 @@
  */
 class InMemoryGeoTagStore{
 
-    // TODO: ... your code here ...
+    constructor() {
+        let geoTags = [];
+    }
+
+    addGeoTag() {
+        this.geoTags
+    }
 
 }
 
