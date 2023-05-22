@@ -223,6 +223,7 @@ fieldset
   display: flex;
   flex-direction: column;
   margin-left: 2%;
+  margin-right: 6%;
 }
 
 legend
@@ -259,7 +260,7 @@ legend
   margin-left: 1%;
   margin-top: 1%;
   height: auto;
-  width: 100%;
+  width: 50%;
 }
 #mapView
 {
