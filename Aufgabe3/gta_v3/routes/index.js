@@ -16,8 +16,6 @@ const router = express.Router();
 /**
  * The module "geotag" exports a class GeoTagStore. 
  * It represents geotags.
- * 
- * TODO: implement the module in the file "../models/geotag.js"
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTag = require('../models/geotag');
@@ -25,12 +23,12 @@ const GeoTag = require('../models/geotag');
 /**
  * The module "geotag-store" exports a class GeoTagStore. 
  * It provides an in-memory store for geotag objects.
- * 
- * TODO: implement the module in the file "../models/geotag-store.js"
  */
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
-const app = require('../app');
+
+//Set-up GeoTags App should probably be done elsewhere?
+const store = new GeoTagStore();
 
 /**
  * Route '/' for HTTP 'GET' requests.
@@ -41,9 +39,13 @@ const app = require('../app');
  * As response, the ejs-template is rendered without geotag objects.
  */
 
-// TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
+  const geoTags = store.geoTags;
+  res.render('index', {
+    taglist: geoTags,
+    set_latitude: "",
+    set_longitude: ""
+  })
 });
 
 /**
@@ -61,18 +63,34 @@ router.get('/', (req, res) => {
  * by radius around a given location.
  */
 
-app.put('/tagging', function(req,res) {
-  const { text_field_latitude, text_field_longitude, text_field_name, text_field_tags } = req.body.getElementById("tag-field");
+router.post('/tagging', (req,res) => {
+
+  function errorCallback(errorMessage) {
+    res.send(errorMessage);
+  }
+
+  const { text_field_latitude, text_field_longitude, text_field_name, text_field_tags } = req.body;
+
   const newGeoTag = new GeoTag(
+      text_field_name,
       text_field_latitude,
       text_field_longitude,
-      text_field_name,
       text_field_tags
       );
-  GeoTagStore.addGeoTag(newGeoTag);
-  const proximityGeoTags = GeoTagStore.getNearbyGeoTags(newGeoTag.latitude, newGeoTag.longitude);
+  console.log("newGeoTag:")
+  console.log(newGeoTag.name)
+  console.log(newGeoTag.latitude)
+  console.log(newGeoTag.longitude)
+  console.log(newGeoTag.hashtag)
 
-  res.render('index', {geotags: proximityGeoTags })
+  store.addGeoTag(newGeoTag, errorCallback);
+  const geoTags = store.getNearbyGeoTags(newGeoTag.latitude, newGeoTag.longitude);
+
+  res.render('index', {
+    taglist: geoTags,
+    set_latitude: text_field_latitude,
+    set_longitude: text_field_longitude
+  })
 });
 
 
@@ -93,6 +111,17 @@ app.put('/tagging', function(req,res) {
  * by radius and keyword.
  */
 
-// TODO: ... your code here ...
+router.post('/discovery', (req,res) => {
+
+  const { text_field_search, latitude_input, longitude_input } = req.body;
+  let geoTags = store.getNearbyGeoTags(latitude_input, longitude_input)
+  if (text_field_search !== null) geoTags = store.searchNearbyGeoTags(text_field_search, geoTags);
+
+  res.render('index', {
+    taglist: geoTags,
+    set_latitude: req.body.latitude,
+    set_longitude: req.body.longitude
+  })
+});
 
 module.exports = router;

@@ -1,4 +1,10 @@
 // File origin: VS1LAB A3
+const GeoTag = require("./geotag");
+const GeoTagExamples = require("./geotag-examples");
+
+function degToRad(degrees) {
+    return degrees * (Math.PI / 180);
+}
 
 /**
  * A class for in-memory-storage of geotags
@@ -20,44 +26,74 @@
  */
 class InMemoryGeoTagStore{
 
+    /**
+     * @type {GeoTag[]}
+     */
+    #geoTags = [];
+
     constructor() {
-        let geoTags = [];
+        GeoTagExamples.tagList.forEach(tag => {
+            this.addGeoTag(tag[0],tag[1],tag[2],tag[3],(errorMessage) => { console.log(errorMessage) });
+        })
     }
 
-    addGeoTag(newGeoTag) {
-        this.geoTags[this.geoTags.length] = newGeoTag;
-    }
-    removeGeoTag(name) {
-        const index = this.geoTags.indexOf(name);
-        if (index > -1) { //Only splice/remove if item is found
-            this.geoTags.splice(index,1);
+    /**
+     * Save GeoTags
+     * Does NOT check if name or hashtag is already used!
+     * @param name Either GeoTag itself or String name for GeoTag -> If name is GeoTag itself, rest values will be ignored
+     * @param latitude
+     * @param longitude
+     * @param hashtag
+     * @param errorCallback If GeoTag could not be created ErrorCallback will be thrown telling the client about the problem
+     */
+    addGeoTag(name,latitude,longitude,hashtag, errorCallback) {
+        let newGeoTag;
+        if (name instanceof GeoTag) {
+            newGeoTag = name;
+        } else {
+            newGeoTag = new GeoTag(name,latitude,longitude,hashtag)
+        }
+        const gname = newGeoTag.name;
+        if (!(this.#geoTags.some(item => item.name === gname))) {
+            this.#geoTags.push(newGeoTag);
+        } else {
+            errorCallback("Name already used. Please use a different name");
         }
     }
-    getNearbyGeoTags(latitude, longitude) {
-        const proximity = 50; //Standard number to start with (idea 50km)
-        const lat = latitude;
-        const long = longitude;
-        const r = 6371; //Radius of Earth in km
-        let nearby = this.geoTags.filter(item => {  //Distance calculations
-            const dLon = Math.degToRad(long-item.longitude);
-            const dLat = Math.degToRad(lat-item.latitude);
-            let a =
-                Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(Math.degToRad(lat)) * Math.cos(Math.degToRad(item.latitude)) *
-                Math.sin(dLon/2) * Math.sin(dLon/2)
-            ;
-            a = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-            const distance = r * a;
-            return distance<proximity;
-        });
-        return nearby;
+
+    removeGeoTag(name) {
+        const index = this.#geoTags.indexOf(name);
+        if (index > -1) { //Only splice,remove if item is found
+            this.#geoTags.splice(index,1);
+        }
     }
-    searchNearbyGeoTags(location, key) {
-        let nearby = this.getNearbyGeoTags(location);
-        nearby = nearby.filter(item => item.name.includes(key) || item.hashtag.includes(key));
-        return nearby;
+
+    /**
+     *
+     * @param lat Latitude
+     * @param long Longitude
+     * @returns {GeoTag[]} returns nearby GeoTags
+     */
+
+    getNearbyGeoTags(lat, long) {
+        const proximity = 50; //Standard number to start with (idea 50km)
+        const r = 6371; //Radius of Earth in km
+        return this.#geoTags.filter(item => {  //Distance calculations
+            const dLon = degToRad(long - item.longitude);
+            const dLat = degToRad(lat - item.latitude);
+            let a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(degToRad(lat)) * Math.cos(degToRad(item.latitude)) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2)
+            ;
+            a = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const distance = r * a;
+            return distance < proximity;
+        });
+    }
+    searchNearbyGeoTags(key, geoTags /* = this.getNearbyGeoTags(location-helper.latitude, location-helper.longitude) */ ) {
+        key = key.toLowerCase();
+        return geoTags.filter(item => item.name.toLowerCase().includes(key) || item.hashtag.toLowerCase().includes(key));
     }
 }
-let geoTagStore = new InMemoryGeoTagStore();
 module.exports = InMemoryGeoTagStore
-module.exports = geoTagStore
