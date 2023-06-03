@@ -238,14 +238,6 @@ legend
   margin-bottom: 8px;
 }
 
-
-
-
-
-/* ### TODO ### Styles for Discovery component */
-
-/* ... your code here ... */
-
 #discovery-field
 {
   margin-right: 5%;
@@ -304,13 +296,6 @@ ul
   flex-direction: row;
 }
 
-
-
-
-
-/* ### TODO ### Styles for Footer Component */
-
-/* ... your code here ... */
 footer
 {
   display: flex;
@@ -319,11 +304,7 @@ footer
   background-color: rgb(214, 214, 214);
 }
 
-
-
-/* ### TODO ### Media Queries */
-
-/* ... your code here ... */
+/* Media Queries */
 @media screen and (max-width: 1250px)
 {
   main
@@ -340,7 +321,7 @@ footer
   li
   {
     width: 100%;
-    font-size: 10px;
+    font-size: 14px;
     word-break: normal;
   }
 }
