@@ -10,11 +10,65 @@
  * GeoTag objects should contain at least all fields of the tagging form.
  */
 class GeoTag {
+
+    #name = "";
+    #latitude = 0;
+    #longitude = 0;
+    #hashtag = "";
+
+
     constructor(name, latitude, longitude, hashtag) {
-        this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.hashtag = hashtag; //null, if empty
+        this.#name = name;
+        this.#latitude = latitude;
+        this.#longitude = longitude;
+        this.#hashtag = hashtag; //null, if empty
+    }
+
+    /**
+     * As geoTag is a custom class, we must specify how to stringify an object.
+     * This Method is automatically called via the JSON.stringify(...)
+     * @return {{latitude: number, name: string, longitude: number, hashtag: string}}
+     */
+    toJSON() {
+        //properties to include in the JSON string
+        return {
+            name: this.#name,
+            latitude: this.#latitude,
+            longitude: this.#longitude,
+            hashtag: this.#hashtag
+        };
+    }
+
+    get latitude() {
+        return this.#latitude;
+    }
+
+    set latitude(latitude) {
+        this.#latitude = latitude;
+    }
+
+    get name() {
+        return this.#name;
+    }
+
+    set name(value) {
+        this.#name = value;
+    }
+
+    get longitude() {
+        return this.#longitude;
+    }
+
+    set longitude(longitude) {
+        this.#longitude = longitude;
+    }
+
+    get hashtag() {
+        return this.#hashtag;
+    }
+
+    set hashtag(hashtag) {
+        this.#hashtag = hashtag;
     }
 }
 
