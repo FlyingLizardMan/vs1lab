@@ -27,7 +27,7 @@ const GeoTag = require('../models/geotag');
 // eslint-disable-next-line no-unused-vars
 const GeoTagStore = require('../models/geotag-store');
 
-//Set-up GeoTags App should probably be done elsewhere?
+//Set-up GeoTags App correct here?
 const store = new GeoTagStore();
 
 /**
@@ -41,6 +41,7 @@ const store = new GeoTagStore();
 
 router.get('/', (req, res) => {
   const geoTags = store.geoTags;
+
   res.render('index', {
     taglist: geoTags,
     set_latitude: "",
@@ -77,7 +78,7 @@ router.post('/tagging', (req,res) => {
 
   let errorMessage;
   errorMessage = store.addGeoTag(newGeoTag);
-  const geoTags = store.getNearbyGeoTags(newGeoTag.latitude, newGeoTag.longitude);
+  const geoTags = store.getNearbyGeoTags(text_field_latitude, text_field_longitude, 50);
 
   res.render('index', {
     taglist: geoTags,
@@ -109,7 +110,7 @@ router.post('/tagging', (req,res) => {
 router.post('/discovery', (req,res) => {
 
   const { text_field_search, latitude_input, longitude_input } = req.body;
-  let geoTags = store.getNearbyGeoTags(latitude_input, longitude_input)
+  let geoTags = store.getNearbyGeoTags(latitude_input, longitude_input, 50)
   if (text_field_search !== null) geoTags = store.searchNearbyGeoTags(text_field_search, geoTags);
 
   res.render('index', {

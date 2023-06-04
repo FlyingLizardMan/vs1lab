@@ -36,6 +36,7 @@ class InMemoryGeoTagStore{
         })
     }
 
+
     /**
      * Returns all currently stored GeoTags
      * @return {GeoTag[]}
@@ -54,7 +55,7 @@ class InMemoryGeoTagStore{
      * @return String
      * Returns an ErrorMessage to display for client
      */
-    addGeoTag(geoTagOrName,latitude,longitude,hashtag) {
+    addGeoTag(geoTagOrName,latitude = 0,longitude = 0,hashtag = "") {
         let newGeoTag;
         if (geoTagOrName instanceof GeoTag) {
             newGeoTag = geoTagOrName;
@@ -82,11 +83,11 @@ class InMemoryGeoTagStore{
      *
      * @param lat Latitude
      * @param long Longitude
+     * @param proximity Proximity Radius in which to search
      * @returns {GeoTag[]} returns nearby GeoTags
      */
 
-    getNearbyGeoTags(lat, long) {
-        const proximity = 50; //Standard number to start with (idea 50km)
+    getNearbyGeoTags(lat, long, proximity = 100) {
         const r = 6371; //Radius of Earth in km
         return this.#geoTags.filter(item => {  //Distance calculations
             const dLon = degToRad(long - item.longitude);
