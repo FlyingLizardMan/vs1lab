@@ -52,10 +52,8 @@
         <section class="main__discovery discovery col-10">
             <h2 class="discovery__title">Discovery</h2>
 
-            <!-- ############### VS1Lab 1a Form 2 Start -->
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
-                <!-- ... your code here ... -->
                 <fieldset id="discovery-field">
                     <legend>Search</legend>
                     <label for="text_field_search">Search term or keywords:</label><br>
@@ -63,11 +61,9 @@
                     <input type="hidden" id="latitude_input" name="latitude_input" size="20" value="<%= set_latitude %>">
                     <input type="hidden" id="longitude_input" name="longitude_input" size="20" value="<%= set_longitude %>">
 
-
                     <input type="submit" id="button_search" name="button_search" value="Search">
                 </fieldset>
             </form>
-            <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper row">
                 <div class="discovery__taglist col-5">
@@ -79,7 +75,7 @@
                 </div>
 
                 <div class="discovery__map col-7">
-                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" /><br>
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<% if (mapList !== undefined) JSON.stringify(mapList) %>" /><br>
                     <span>Result map</span>
                 </div>
             </div>
@@ -89,10 +85,12 @@
 
     <footer class="footer row">
         <span>(c) 2021/22 HKA_IWI_VSYS</span>
+        <blockquote><% if (errorMessage !== undefined) %> <%= errorMessage; %></blockquote>
     </footer>
     <!-- Load JavaScripts -->
+    <script src="./javascripts/location-helper.js"></script>
+    <script src="./javascripts/map-manager.js"></script>
     <script src="./javascripts/geotagging.js"></script>
 </body>
-
 </html>
 

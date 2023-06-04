@@ -44,7 +44,9 @@ router.get('/', (req, res) => {
   res.render('index', {
     taglist: geoTags,
     set_latitude: "",
-    set_longitude: ""
+    set_longitude: "",
+    errorMessage: "",
+    mapList: geoTags
   })
 });
 
@@ -64,11 +66,6 @@ router.get('/', (req, res) => {
  */
 
 router.post('/tagging', (req,res) => {
-
-  function errorCallback(errorMessage) {
-    res.send(errorMessage);
-  }
-
   const { text_field_latitude, text_field_longitude, text_field_name, text_field_tags } = req.body;
 
   const newGeoTag = new GeoTag(
@@ -77,19 +74,17 @@ router.post('/tagging', (req,res) => {
       text_field_longitude,
       text_field_tags
       );
-  console.log("newGeoTag:")
-  console.log(newGeoTag.name)
-  console.log(newGeoTag.latitude)
-  console.log(newGeoTag.longitude)
-  console.log(newGeoTag.hashtag)
 
-  store.addGeoTag(newGeoTag, errorCallback);
+  let errorMessage;
+  errorMessage = store.addGeoTag(newGeoTag);
   const geoTags = store.getNearbyGeoTags(newGeoTag.latitude, newGeoTag.longitude);
 
   res.render('index', {
     taglist: geoTags,
     set_latitude: text_field_latitude,
-    set_longitude: text_field_longitude
+    set_longitude: text_field_longitude,
+    errorMessage: "Error: " + errorMessage,
+    mapList: geoTags
   })
 });
 
@@ -120,7 +115,9 @@ router.post('/discovery', (req,res) => {
   res.render('index', {
     taglist: geoTags,
     set_latitude: req.body.latitude,
-    set_longitude: req.body.longitude
+    set_longitude: req.body.longitude,
+    errorMessage: "",
+    mapList: geoTags
   })
 });
 

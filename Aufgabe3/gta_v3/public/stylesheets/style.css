@@ -189,13 +189,7 @@ header
 }
 
 
-
-
-
-
 /* ### TODO ### Styles for Main Component */
-
-/* ... your code here ... */
 
 main
 {
@@ -205,17 +199,14 @@ main
 }
 
 
-
-
 /* ### TODO ### Styles for Tagging component */
-
-/* ... your code here ... */
 
 fieldset
 {
   border-style: solid;
   border-color: rgba(128,128,128,0.3);
   text-align: left;
+
 }
 
 .tagging
@@ -304,7 +295,7 @@ footer
   background-color: rgb(214, 214, 214);
 }
 
-/* Media Queries */
+/*-Media Queries-*/
 @media screen and (max-width: 1250px)
 {
   main

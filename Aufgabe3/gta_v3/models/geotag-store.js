@@ -25,7 +25,6 @@ function degToRad(degrees) {
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
-
     /**
      * @type {GeoTag[]}
      */
@@ -33,38 +32,49 @@ class InMemoryGeoTagStore{
 
     constructor() {
         GeoTagExamples.tagList.forEach(tag => {
-            this.addGeoTag(tag[0],tag[1],tag[2],tag[3],(errorMessage) => { console.log(errorMessage) });
+            this.addGeoTag(tag[0],tag[1],tag[2],tag[3]);
         })
+    }
+
+    /**
+     * Returns all currently stored GeoTags
+     * @return {GeoTag[]}
+     */
+    get geoTags() {
+        return this.#geoTags;
     }
 
     /**
      * Save GeoTags
      * Does NOT check if name or hashtag is already used!
-     * @param name Either GeoTag itself or String name for GeoTag -> If name is GeoTag itself, rest values will be ignored
+     * @param geoTagOrName Either GeoTag itself or String name for GeoTag -> If name is GeoTag itself, rest values will be ignored
      * @param latitude
      * @param longitude
      * @param hashtag
-     * @param errorCallback If GeoTag could not be created ErrorCallback will be thrown telling the client about the problem
+     * @return String
+     * Returns an ErrorMessage to display for client
      */
-    addGeoTag(name,latitude,longitude,hashtag, errorCallback) {
+    addGeoTag(geoTagOrName,latitude,longitude,hashtag) {
         let newGeoTag;
-        if (name instanceof GeoTag) {
-            newGeoTag = name;
+        if (geoTagOrName instanceof GeoTag) {
+            newGeoTag = geoTagOrName;
         } else {
-            newGeoTag = new GeoTag(name,latitude,longitude,hashtag)
+            newGeoTag = new GeoTag(geoTagOrName,latitude,longitude,hashtag)
         }
         const gname = newGeoTag.name;
         if (!(this.#geoTags.some(item => item.name === gname))) {
             this.#geoTags.push(newGeoTag);
         } else {
-            errorCallback("Name already used. Please use a different name");
+            return ("Name already in use. Please specify a different name");
         }
     }
 
     removeGeoTag(name) {
-        const index = this.#geoTags.indexOf(name);
-        if (index > -1) { //Only splice,remove if item is found
+        const index = this.#geoTags.findIndex(item => item.name === name);
+        if (index > -1) { //Only delete if item is found
             this.#geoTags.splice(index,1);
+        } else {
+            return ("The specified GeoTag could not be found.")
         }
     }
 
