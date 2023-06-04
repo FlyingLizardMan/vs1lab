@@ -79,12 +79,13 @@ router.post('/tagging', (req,res) => {
   let errorMessage;
   errorMessage = store.addGeoTag(newGeoTag);
   const geoTags = store.getNearbyGeoTags(text_field_latitude, text_field_longitude, 50);
+  if (errorMessage !== undefined) errorMessage = "Error: " + errorMessage;
 
   res.render('index', {
     taglist: geoTags,
     set_latitude: text_field_latitude,
     set_longitude: text_field_longitude,
-    errorMessage: "Error: " + errorMessage,
+    errorMessage: errorMessage,
     mapList: geoTags
   })
 });
