@@ -17,7 +17,6 @@ console.log("The geoTagging script is going to start...");
 
 function updateLocation() {
     function setValues(helper) {
-        console.log("setValues")
         //Fields füllen
         //Tagging
         document.getElementById("text_field_latitude").value = helper.latitude;
@@ -28,14 +27,11 @@ function updateLocation() {
         setMap(helper);
     }
     function setMap(helper) {
-        let mapList = document.getElementById("mapView").getAttribute("data-tags");
-        if (mapList !== "") { mapList = JSON.parse(mapList); }
         //Set Map
-        let mm = new MapManager("iAPktSY0xLO4PpxaSrdVu3e5LlM1qdc6");
-        let mapURL = mm.getMapUrl(helper.latitude,helper.longitude);
-
-        console.log(mapURL);
-        console.log("Rendering Map")
+        const tag_string = document.getElementById("mapView").getAttribute("data-tags");
+        const mapList = (tag_string !== "") ? JSON.parse(tag_string) : [];
+        const mm = new MapManager("iAPktSY0xLO4PpxaSrdVu3e5LlM1qdc6");
+        const mapURL = mm.getMapUrl(helper.latitude,helper.longitude, mapList);
         document.getElementById("mapView").src = mapURL;
     }
     //Func Aufrufe
