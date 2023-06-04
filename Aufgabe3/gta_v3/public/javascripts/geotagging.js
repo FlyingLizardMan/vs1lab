@@ -31,8 +31,8 @@ function updateLocation() {
         const tag_string = document.getElementById("mapView").getAttribute("data-tags");
         const mapList = (tag_string !== "") ? JSON.parse(tag_string) : [];
         const mm = new MapManager("iAPktSY0xLO4PpxaSrdVu3e5LlM1qdc6");
-        const mapURL = mm.getMapUrl(helper.latitude,helper.longitude, mapList);
-        document.getElementById("mapView").src = mapURL;
+        document.getElementById("mapView").src =
+            mm.getMapUrl(helper.latitude, helper.longitude, mapList);
     }
     //Func Aufrufe
     if (document.getElementById("text_field_latitude").value === "") {
