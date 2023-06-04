@@ -112,7 +112,7 @@ router.post('/discovery', (req,res) => {
 
   const { text_field_search, latitude_input, longitude_input } = req.body;
   let geoTags = store.getNearbyGeoTags(latitude_input, longitude_input, 50)
-  if (text_field_search !== null) geoTags = store.searchNearbyGeoTags(text_field_search, geoTags);
+  if (text_field_search !== undefined) geoTags = store.searchNearbyGeoTags(text_field_search, geoTags);
 
   res.render('index', {
     taglist: geoTags,
