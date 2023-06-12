@@ -34,9 +34,6 @@ class GeoTagExamples {
     }
 }
 
-var geoTagStore = new InMemoryGeoTagStore();
-GeoTagExamples.tagList.forEach(element => {
-    geoTagStore.addGeoTag(element);
-});
+
 
 module.exports = GeoTagExamples;

@@ -79,7 +79,8 @@
                 </div>
 
                 <div class="discovery__map col-7">
-                    <img src="images/mapview.jpg" alt="a map with locations" id="mapView" /><br>
+                    <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<% if (mapList !== undefined) %> <%= JSON.stringify(mapList); %>" /><br>
+
                     <span>Result map</span>
                 </div>
             </div>
