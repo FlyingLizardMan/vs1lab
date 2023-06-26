@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<!-- File origin: VS1LAB A1a -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoTagApp</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <header class="header">
+        <img src="./images/location.png" class="header__image" alt="an image of a map and location">
+        <h1 class="header__title">GeoTagApp</h1>
+        <nav class="header__navigation">
+            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+        </nav>
+    </header>
+
+    <main class="main row">
+        <section class="main__tagging tagging col-3">
+            <h2>Tagging</h2>
+            <!-- ############### VS1Lab 1a Form 1 Start -->
+            <form id="tag-form" action="/tagging" method="post">
+                <fieldset id="tag-fieldset">
+                    <legend>Add a new GeoTag</legend>
+                    <label class="input-tag">
+                        Latitude:
+                        <input id="tag-latitude" type="number" name="tagLatitude" value="<%= latitudeClient %>"
+                            readonly="readonly" input>
+                    </label>
+                    <label class="input-tag">
+                        Longitude:
+                        <input id="tag-longitude" type="number" name="tagLongitude" value="<%= longitudeClient %>"
+                            readonly="readonly" input>
+                    </label class="input-tag">
+
+                    <label class="input-tag">
+                        Name:
+                        <input id="tag-name" type="text" name="tagName" placeholder="Ötisheim" maxlength="10" required>
+                    </label>
+
+                    <label class="input-tag">
+                        Hashtag:
+                        <input id="tag-hashtag" type="text" name="tagHashtag" placeholder="#Aize" maxlength="11"
+                            pattern="#{1}.{0,10}">
+                    </label>
+
+                    <label class="input-tag">
+                        <input id="tag-submit" type="submit" name="tag-submit" value="Add Tag" input>
+                    </label>
+                </fieldset>
+                <!-- ... your code here ... -->
+
+            </form>
+            <!-- ############### VS1Lab 1a Form 1 End -->
+
+        </section>
+
+
+        <section class="main__discovery discovery col-9">
+            <h2 class="discovery__title">Discovery</h2>
+
+            <!-- ############### VS1Lab 1a Form 2 Start -->
+            <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
+
+                <fieldset id="discoveryFieldset">
+                    <legend> Search a GeoTag</legend>
+                    <label>
+                        <div>Search term or keywords:</div>
+                        <input id="discoverySearch" type="search" name="discoverySearch" placeholder="Ötisheim">
+                    </label>
+
+                    <label>
+                        <input id="discoveryHiddenLatitude" type="hidden" name="discoveryHiddenLatitude"
+                            value="<%= latitudeClient %>">
+                    </label>
+
+                    <label>
+                        <input id="discoveryHiddenLongitude" type="hidden" name="discoveryHiddenLongitude"
+                            value="<%= longitudeClient %>">
+                    </label>
+
+                    <label>
+                        <input id="discoverySubmit" type="submit" name="tag-submit" value="Search" input>
+                    </label>
+
+                </fieldset>
+                <!-- ... your code here ... -->
+
+            </form>
+            <!-- ############### VS1Lab 1a Form 2 End -->
+
+            <div class="discovery__wrapper">
+                <div class="discovery__taglist col-4">
+                    <ul class="discovery__results" id="discoveryResults">
+                        <% if (taglist !==undefined) taglist.forEach(function(gtag) { %>
+                            <li>
+                                <%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %>
+                            </li>
+                            <% }); %>
+                    </ul>
+                    <nav class="pagination-container">
+                        <button class="pagination-button" id="prev-button" title="Previous page">
+                            &lt;
+                        </button>
+
+                        <div id="pagination-numbers">
+                            <span id="pagination-num">1</span>
+                        </div>
+
+                        <button class="pagination-button" id="next-button" title="Next page">
+                            &gt;
+                        </button>
+                    </nav>
+                </div>
+
+                <div class="discovery__map col-8">
+                    <img data-geotags=" <%= JSON.stringify(taglist) %>" src="./images/mapview.jpg"
+                        alt="a map with locations" id="mapView" />
+                    <span>Result map</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <span>(c) 2021/22 HKA_IWI_VSYS</span>
+    </footer>
+
+    <script src="./javascripts/geotagging.js"></script>
+    <script src="./javascripts/location-helper.js"></script>
+    <script src="./javascripts/map-manager.js"></script>
+
+</body>
+
+</html>
